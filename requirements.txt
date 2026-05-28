@@ -1,6 +1,4 @@
 python-telegram-bot==21.4
 requests==2.32.3
 supabase==2.10.0
-thirdweb==0.5.2
-resend==2.5.0
-openai==1.40.0
+thirdweb-sdk==0.1.0
