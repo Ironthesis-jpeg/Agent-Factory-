@@ -1,4 +1,4 @@
 python-telegram-bot==21.4
 requests==2.32.3
 supabase==2.10.0
-thirdweb-sdk==0.1.0
+thirdweb-sdk==3.1.1
