@@ -5,7 +5,7 @@ python-telegram-bot>=21.4,<22
 requests>=2.32.3,<3
 
 # Web3 & Blockchain
-web3>=6.20.1
+web3==5.27.0
 thirdweb-sdk>=3.1.1
 
 # Database
