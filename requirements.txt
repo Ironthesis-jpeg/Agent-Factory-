@@ -1,3 +1,21 @@
+# Telegram Bot Framework
 python-telegram-bot>=21.4,<22
+
+# HTTP Requests
 requests>=2.32.3,<3
+
+# Web3 & Blockchain
 web3>=6.20.1
+thirdweb-sdk>=6.0.0
+
+# Database
+supabase>=2.0.0
+
+# Email
+resend>=0.8.0
+
+# AI/LLM
+openai>=1.0.0
+
+# Async Support
+aiohttp>=3.9.0
