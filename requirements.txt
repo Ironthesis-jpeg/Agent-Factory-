@@ -6,9 +6,7 @@ requests==2.32.3
 
 # Web3 & Blockchain
 web3==5.27.0
-
-# Database
-supabase==2.2.0
+thirdweb-sdk==3.1.1
 
 # Email
 resend==0.8.0
