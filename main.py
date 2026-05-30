@@ -4,7 +4,6 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import requests
 import resend
-from supabase import create_client, Client
 from thirdweb import ThirdwebSDK
 import openai
 
@@ -15,14 +14,11 @@ RAILWAY_TOKEN = os.getenv("RAILWAY_TOKEN")
 VERCEL_TOKEN = os.getenv("VERCEL_TOKEN")
 THIRDWEB_SECRET = os.getenv("THIRDWEB_SECRET")
 PRIVATE_KEY = os.getenv("PRIVATE_KEY")
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 RESEND_KEY = os.getenv("RESEND_KEY")
 HERMES_KEY = os.getenv("HERMES_KEY")
 
 openai.api_key = HERMES_KEY
 resend.api_key = RESEND_KEY
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 async def build(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if len(context.args) < 4:
@@ -41,16 +37,7 @@ async def build(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # HUB 5: THIRDWEB - Deploy token if yes
 
     # Placeholder response for now
-    await update.message.reply_text(f"Done. {bot_name} is live.\n\nRepo: github.com/your_org/{bot_name.lower()}\nBot: t.me/{bot_name}Bot\nSite: {bot_name.lower()}.vercel.app\nToken: Coming soon" if token_flag == "yes" else "")
-
-    # Save to Supabase
-    supabase.table("builds").insert({
-        "user_id": user_id,
-        "bot_name": bot_name,
-        "ticker": ticker,
-        "chain": chain,
-        "token": token_flag == "yes"
-    }).execute()
+    await update.message.reply_text(f"Done. {bot_name} is live.\n\nRepo: github.com/your_org/{bot_name.lower()}\nBot: t.me/{bot_name}Bot\nSite: {bot_name.lower()}.vercel.app\nToken: Coming soon")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Agent Factory live. Run /build to create your agent + token + site.")
